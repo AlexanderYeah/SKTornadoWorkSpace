@@ -21,11 +21,47 @@ define("port",default=12356,help="run on given port",type=int)
 
 """
 
-# 就是讲 用户输入的字符串进行翻转 返回给用户就可以了
+# 1 就是讲 用户输入的字符串进行翻转 返回给用户就可以了
 class ReverseHandler(tornado.web.RequestHandler):
     def get(self,input):
         # 对用户的输入 做一个 翻转操作 直接进行返回
         self.write(input[::-1])
+
+
+# Toonado 支持任何合法的HTTP 请求 （GET POST PUT DELETE HEAD OPTIONS）
+
+# 可以根据用户的输入，显性的设置状态码 set_status
+
+"""
+    输入 http://localhost:8084/index
+
+
+    返回 ：my friend!!!,you caused a 405 error
+
+"""
+
+class WrapHandler(tornado.web.RequestHandler):
+    def post(self, *args, **kwargs):
+        text = self.get_argument('text',default=None);
+        width = self.get_argument('width',default=40);
+
+        if text is not None:
+            # 如果传递参数 设置状态码为200
+            self.set_status(200);
+        else:
+            # 不设置text 参数，直接返回404
+            self.set_status(404);
+
+
+# 当HTTP 请求错误发生的时候，Tornado 会向客户端发送一个状态码和错误信息的简短的片段
+# 也可以使用write_error 方法在RequestHandler 中
+class IndexHandler(tornado.web.RequestHandler):
+    def get(self, *args, **kwargs):
+        greeting = self.get_argument("greeting",default="Hello");
+        self.write(greeting + "hello world");
+    def write_error(self, status_code, **kwargs):
+        self.write("my friend!!!,you caused a %d error" % status_code);
+
 
 
 
@@ -41,7 +77,10 @@ class ReverseHandler(tornado.web.RequestHandler):
 if __name__ == '__main__':
     # 解析命令行的输入
     tornado.options.parse_command_line();
-    app = tornado.web.Application(handlers=[(r"/reverse/(\w+)",ReverseHandler)]);
+    app = tornado.web.Application(handlers=[(r"/reverse/(\w+)",ReverseHandler),
+                                            (r"/wrap",WrapHandler),
+                                            (r"/index",IndexHandler),
+                                            ]);
     http_server = tornado.httpserver.HTTPServer(app);
     # 监听从命令行中输入的端口
     http_server.listen(options.port);
