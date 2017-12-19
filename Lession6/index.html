@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child Page</title>
+</head>
+<body>
+        <!-- 直接继承父模板的样式进行呈现-->
+        {% extends "main.html" %}
+
+        {% block header %}
+            <h1> hello world</h1>
+        {% end %}
+
+
+</body>
+</html>
