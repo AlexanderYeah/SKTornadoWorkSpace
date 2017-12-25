@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this is main page</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <header style="background-color: antiquewhite;font-size: 35px">
+                {% block header %}
+                <h1>  {{header_con}} </h1>
+                {% end %}
+        </header>
+
+        <footer style="background-color: chocolate;font-size: 25px">
+
+                {% block footer %}
+                    <h1> {{footer_con}}</h1>
+                {% end %}
+        </footer>
+
+    </div>
+
+</body>
+</html>
