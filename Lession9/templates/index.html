@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index yourself</title>
+</head>
+<body>
+
+    <h2 style="background-color: chocolate;color: olivedrab">好书推荐</h2>
+
+    {% for book in books %}
+        {% module Book(book) %}
+    {% end %}
+
+
+</body>
+</html>
