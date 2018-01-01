@@ -5,4 +5,7 @@
 3 -- 12.14 Lession3 模板渲染简单的了解 --->  [加班到深夜](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession2/lession2.md)   
 4 -- 12.17 Lession4  静态static_url的了解 --->[go](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession5/lesson5.md)  
 5 -- 12.25 Lession6 是学了怎么使用block Lession7 块的使用练习 ---> [最近忙着加班，疏于练习，自我检讨](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession7/lession7.md)  
-6 -- 12.26 Lession8 UI 模块的使用 --->[go to study](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession8/lession8.md)
+6 -- 12.26 Lession8 UI 模块的使用 --->[go to study](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession8/lession8.md)  
+7 -- 12.29 Lession9 UIModule 的进一步使用--->[小憩一会](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession9/lession9.md)  
+8 -- 12.30
+9 -- 12.31 最后一天，去杭州
