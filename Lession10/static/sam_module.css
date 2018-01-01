@@ -1,0 +1,14 @@
+.sample{
+
+    font-size: 50px;
+    height: 150px;
+    width: 100%;
+}
+
+.sample2{
+    margin-top: 100px;
+    background-color: brown;
+    height: 160px;
+    font-size: 30px;
+    width: 50%;
+}
