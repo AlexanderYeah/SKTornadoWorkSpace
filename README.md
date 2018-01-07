@@ -11,4 +11,5 @@
   
 9 -- 12.31 最后一天，去杭州  
 10 -- 1.1 内嵌js 和 css 的方法  
-11 -- 1.4 最近比较忙，还是抽出一个小时时间来回顾一下--->[洗把脸--sleep](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession11/lession11.md)    btw，mac mongodb装不上 就使用mysql了
+11 -- 1.4 最近比较忙，还是抽出一个小时时间来回顾一下--->[洗把脸--sleep](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession11/lession11.md)    btw，mac mongodb装不上 就使用mysql了  
+12 -- 1.6 web服务 同步的了解。--->[理解同步才能理解异步](https://github.com/AlexanderYeah/SKTornadoWorkSpace/blob/master/Lession12/lession12.md)
