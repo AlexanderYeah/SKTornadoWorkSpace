@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情界面</title>
+    <script src="{{static_url('jquery-1.12.2.js')}}" type="application/javascript"></script>
+</head>
+<body>
+    <h1 id="header">Ready Go</h1>
+
+    <input type="hidden" id="session" value="{{ session }}">
+
+    <div id="add-to-chat">
+        <p>
+            <span style="color: red;"> 仅仅剩
+                <span id="count">
+                    {{ count }}
+                </span>
+                件商品在仓库中
+            </span>
+
+            <p>¥20.00 <input type="submit" value="Add to Cart" id="add-button"> </p>
+        </p>
+
+    <div id="remove-from-cart" style="display: block;">
+        <p><span style="color: green">一件商品在购物车中</span></p>
+        <p><input type="submit" value="Remove from Cart" id="remove-button"/></p>
+    </div>
+
+
+    </div>
+
+
+</body>
+
+<script type="application/javascript">
+
+//  测试代码
+     $("#header").css('background-color','brown');
+
+
+    $(document).ready(function () {
+        // session
+        document.session = $('#session').val();
+
+        // alert(document.session);
+        setTimeout(requestInventory,100);
+
+
+        // 加入购物车的操作
+        $("#add-button").click(function (event) {
+            $.ajax({
+                url:'//localhost:8080/cart',
+                type:'POST',
+                data:{
+                    session:document.session,
+                    action:'add'
+                },
+                dataType:'json',
+                success:function (data,status,xhr) {
+                    //$("#add-to-chat").hide();
+                    //$("#remove-from-cart").show();
+                    // $(event.target).removeAttr('disabled');
+                }
+
+            })
+        });
+        // 删除购物车的操作
+        $("#remove-button").click(function (event) {
+            $.ajax({
+                url:'//localhost:8080/cart',
+                type:'POST',
+                data:{
+                    session:document.session,
+                    action:'remove'
+                },
+                dataType:'json',
+                success:function (data,status,xhr) {
+                    // $("#add-to-chat").show();
+                    // $("#remove-from-cart").hide();
+                    // $(event.target).removeAttr('disabled');
+                }
+            })
+
+        });
+
+    })
+
+
+// 向后台请求库存数量
+    function requestInventory() {
+        jQuery.getJSON('//localhost:8080/cart/status',{session:document.session},
+                function(data,status,xhr) {
+                $("#count").html(data['inventoryCount']);
+                setTimeout(requestInventory,0);
+            });
+
+    }
+
+</script>
+
+</html>
